@@ -1,0 +1,97 @@
+/* Center the app container */
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+}
+
+.weather-app {
+  max-width: 600px; /* Maximum width of the app */
+  width: 100%; /* Full width within the max width */
+}
+
+.card {
+  background-color: #1e1e1e; /* Dark card background */
+  color: #e0e0e0; /* Light text color */
+}
+
+.card-body {
+  border-top: 1px solid #333; /* Darker border for card */
+}
+
+.search-box {
+  background-color: #333; /* Dark background for search box */
+  color: #e0e0e0; /* Light text color in search box */
+  border: 1px solid #555; /* Dark border */
+}
+
+  .search-box::placeholder {
+    color: #888; /* Placeholder text color */
+  }
+
+.btn-outline-light {
+  color: #e0e0e0; /* Light text color for button */
+  border-color: #e0e0e0; /* Light border color */
+}
+
+  .btn-outline-light:hover {
+    background-color: #333; /* Darker background on hover */
+    border-color: #e0e0e0; /* Light border color on hover */
+  }
+
+.weather-icon {
+  margin-top: 1rem;
+  border-radius: 50%;
+  background-color: #333; 
+  padding: 0.5rem;
+  width: 50px; 
+  height: 50px; 
+}
+
+
+.carousel-indicators {
+  display: none;
+}
+
+/* Center carousel controls vertically and horizontally */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px; /* Button width */
+  height: 50px; /* Button height */
+  background-color: #444; /* Dark background for buttons */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Round buttons */
+  display: flex; /* Flexbox for centering content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  color: #e0e0e0; /* Light text color */
+  font-size: 1.5rem; /* Font size for arrow icons */
+  position: absolute; /* Position absolute to adjust placement */
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%); /* Adjust for exact centering */
+}
+
+.carousel-control-prev {
+  left: 10px; /* Adjust distance from left edge */
+}
+
+.carousel-control-next {
+  right: 10px; /* Adjust distance from right edge */
+}
+
+  /* Change button style on hover */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #555; /* Slightly lighter background on hover */
+    color: #fff; /* White text color on hover */
+  }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* Ensure icons are visible on dark background */
+}
+
+.carousel-item {
+  padding: 1rem; /* Padding inside each carousel item */
+}

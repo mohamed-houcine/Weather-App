@@ -1,0 +1,50 @@
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+  <div class="weather-app bg-dark text-light rounded p-4 shadow">
+
+    <!-- Search Box -->
+    <div class="mb-4">
+      <form class="d-flex" role="search" (submit)="getWeather()">
+        <input class="form-control me-2 search-box" type="search" placeholder="Enter city name" name="city" [(ngModel)]="city">
+        <button class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- Current Weather Card -->
+    <div class="card text-center mb-4 bg-dark text-light border-light">
+      <div class="card-body">
+        <h2 class="display-4 font-weight-bold mb-3" *ngIf="weatherData?.name && weatherData?.sys?.country">
+          <strong>{{temperature}}°C</strong>
+        </h2>
+        <p class="display-6 mb-2">{{ weatherData?.name }}<span *ngIf="weatherData?.name && weatherData?.sys?.country">,</span>{{ weatherData?.sys?.country }}</p>
+       
+      </div>
+    </div>
+
+    <!-- Weekly Forecast Carousel -->
+    <div class="card text-center bg-dark text-light border-light" *ngIf="weatherData?.name && weatherData?.sys?.country">
+      <div id="weatherCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div *ngFor="let slide of getSlides(); let i = index" class="carousel-item" [class.active]="i === 0">
+            <div class="d-flex justify-content-around text-center align-items-center px-5 bg-secondary" style="height: 230px">
+              <div *ngFor="let forecast of slide" class="flex-column">
+                <p class="small font-weight-bold"><strong>{{ forecast.main.temp }}°C</strong></p>
+                <img [src]="getWeatherIconSrc(forecast.weather[0].main)" class="weather-icon mb-3" alt="Weather Icon">
+                <p class="mb-0 font-italic"><strong>{{ forecast.dt_txt | date: 'EEE, MMM d, h:mm a' }}</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#weatherCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#weatherCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
